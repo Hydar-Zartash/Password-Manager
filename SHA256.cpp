@@ -1,4 +1,4 @@
-#include <string.h>
+#include <string>
 #include <iostream>
 
 #include <stdint.h>
@@ -33,8 +33,8 @@ uint32_t rightrot(uint32_t n, int b){
     return (n>>b)|(n<<(32-b));
 }
 
-int main(){
-    string s = "abc";
+int main(int argc, char **argv){
+    string s = argv[argc-1];
     uint8_t len = s.length();
     uint8_t letter = 0;
     //preprocessed 64 bit number
@@ -58,7 +58,6 @@ int main(){
         lettr = 0;
         for(int j = 0; j < 4; j++){
             lettr = (lettr << 8) |  result[4*i+j];
-            cout<<4*i+j<<"\t";
         }
         w[i] = lettr;
     }
